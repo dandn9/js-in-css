@@ -5,7 +5,6 @@
 Features:
 
 -   Truly OOP (Everything is a class)
--   Everything is global
 
 ![JSS-IN-CSS-APPLICATION](https://i.ibb.co/VSyHZ91/79-K4-nl-ARzq-ktn-Nafevg.png)
 \
