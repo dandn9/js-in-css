@@ -1,6 +1,6 @@
 # JS-IN-CSS
 
-### Sick of only writing and reading Tailwind classes? Just write everything in it. 🤟😎🤟
+### Sick of only writing Tailwind classes? Just write everything in it. 🤟😎🤟
 
 Features:
 
