@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Document</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	</head>
+	<body>
+		<h1
+			class="text-bold { a = 5; b = 5; } { console.log(a+b); //10 } 
+            opacity-50 text-center { 
+                fetch('https://api.quotable.io/random')
+                .then((r) => r.json())
+                .then((data) => { document.querySelector('.quote').innerText = data.content }) } text-green-800">
+			JS-IN-CSS
+		</h1>
+		<p
+			class="quote text-center italic { 
+                const root = ReactDOM.createRoot(document.querySelector('.app')); root.render(React.createElement('h1', {} , 'REACT ELEMENT 🥶 !!'))}">
+			Difficulties are meant to rouse, not discourage. The human spirit is to grow
+			strong by conflict.
+		</p>
+		<div class="app"></div>
+		<div>
+			<div
+				class="{ class NumbersAdder { 
+                    constructor(a, b) { 
+                        this.a = a; this.b = b; 
+                        }
+                    sum() { return this.a + this.b; }   
+                }; window.NumbersAdder = NumbersAdder }">
+				<div
+					class="border border-gray-500 
+                    { console.log('😎🤟');
+                        const numbersAdder = new NumbersAdder(5, 10); console.log(numbersAdder.sum()) 
+                    } h-10 bg-gray-400"></div>
+			</div>
+		</div>
+
+		<script>
+			window.addEventListener('DOMContentLoaded', () => {
+				traverseNode(document.body)
+			})
+			function traverseNode(node) {
+				if (node instanceof HTMLElement) {
+					doTheMagic(getCommands(node.className))
+					node.childNodes.forEach((child) => traverseNode(child))
+				} else {
+					return
+				}
+			}
+			function doTheMagic(cmds) {
+				cmds.forEach((cmd) => eval(cmd))
+			}
+
+			function getCommands(str, left = 0) {
+				const start = str.indexOf('{', left)
+				if (start === -1) return []
+				left = start + 1
+				let c = 1
+				while (c !== 0) {
+					const closestOpen = str.indexOf('{', left)
+					const closestClose = str.indexOf('}', left)
+
+					if (closestOpen !== -1 && closestOpen < closestClose) {
+						c++
+						left = closestOpen + 1
+					} else {
+						c--
+						left = closestClose + 1
+					}
+				}
+
+				const end = left - 1
+
+				return [str.slice(start + 1, end).trim()].concat(getCommands(str, left))
+			}
+		</script>
+	</body>
+</html>
